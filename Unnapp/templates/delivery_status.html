@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Header-->
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Delivery Status</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Review Your Delivery Status...</p>
+            </div>
+        </div>
+    </header>
+
+   
+    <br><br>
+ 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Delivery Status
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            
+                            <p><strong> Order Items</strong></p>
+                            <ul>
+                                {% for item in order_items %}
+                                <li>{{ item.product.name }}
+                                    (Qty:{{ item.quantity }})
+                                </li>
+                                {% endfor %}
+                            <p><strong> Total Price: {{total_price}}</strong></p>
+                            </ul>
+                            <br>
+                            <p><strong>Delivery Status Update: </strong>{{ delivery_status.status }}</p>
+                            <p><strong>Message: </strong>{{ delivery_status.message }}</p>
+                            
+                            <br> <br>
+
+                            <p><i>Make sure order has been delivered before ordering again!</i></p>
+
+                        </ul> 
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+    <br><br>
+    <br><br>
+
+{% endblock %}

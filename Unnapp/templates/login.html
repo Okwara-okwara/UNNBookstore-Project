@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<!-- Header-->
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Login</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Log In To Your Account</p>
+        </div>
+    </div>
+</header>
+
+
+<div class = "container">
+    <div class="row">
+        <div class = "col-md-6 offset-md-3">
+
+            <form method="POST" action="{% url 'login' %}">
+
+                {% csrf_token %}
+
+                <br/> <br/>
+
+
+                <div class="mb-3">        
+                    <input type="username" class="form-control" name="username" placeholder="Enter Your Username" >       
+                </div>
+
+                <div class="mb-3">
+                  
+                    <input type="password" class="form-control" name="password" placeholder="Enter Your Password" >
+                </div>
+
+                <!--
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="check1">
+                    <label for="check1" class="form-check-input" id="check1"> Check me out </label>
+                    
+                </div>
+                  -->
+
+                <button type="submit" class="btn btn-secondary"> 
+                    Login
+                </button>
+              <br/> <br/>
+
+              You don't have an account? <a href="{% url 'register' %}"> Create An Account</a>
+
+            </form>
+
+            <br/> <br/>
+            
+
+
+        </div>
+    </div>
+
+{% endblock %}
